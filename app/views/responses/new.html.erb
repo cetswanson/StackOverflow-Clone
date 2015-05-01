@@ -1,3 +1,6 @@
-<%= form_tag do %>
-Add Response
+<%= form_for @response, :url => new_question_response_path(@respondable.id) do |f| %>
+ <%= f.label :response %>
+ <%= f.text_area :body %>
+
+ <%= f.submit %>
 <% end %>
