@@ -1,8 +1,13 @@
 class ResponsesController < ApplicationController
 
   def new
-    @question = Question.find(params[:question_id])
-    @response = @question.responses.build
+    if params[:question_id]
+      @respondable = Question.find(params[:question_id])
+    elsif params[:answer_id]
+      @respondable = Answer.find(params[:answer_id])
+    end
+
+    @response = @respondable.responses.build
   end
 
   def create
