@@ -2,8 +2,9 @@
 <% if current_user %>
   <%= render '/answers/new' %>
 <% end %>
-<br>
+
 Responses
+<button type="button" href="<%= new_question_response_path(@question.id) %>" class="btn btn-default btn-xs">Add Response</button>
 <ul>
   <% @question.responses.each do |response| %>
     <li><%= response.body %></li>
